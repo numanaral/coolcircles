@@ -182,6 +182,8 @@ function incrementSize(e) {
 }
 
 function point(e) {
+	var closestContainer = e.target.closest('div');
+	if(closestContainer && closestContainer.classList.contains('prohibited-area')) return;
 	if (!prevX || (Math.abs(prevX - e.clientX) > 5) || (Math.abs(prevY - e.clientY) > 5)) {
 		createCircle(e.clientX, e.clientY);
 		prevX = e.clientX;
